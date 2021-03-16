@@ -3,7 +3,8 @@ package gremlin
 import (
 	"encoding/json"
 	_ "fmt"
-	"github.com/satori/go.uuid"
+
+	"github.com/google/uuid"
 )
 
 type Request struct {
@@ -61,7 +62,7 @@ func Query(query string) *Request {
 		Gremlin:  query,
 		Language: "gremlin-groovy",
 	}
-	u, _ := uuid.NewV4()
+	u := uuid.New()
 	uuidString := u.String()
 	req := &Request{
 		RequestId: uuidString,
